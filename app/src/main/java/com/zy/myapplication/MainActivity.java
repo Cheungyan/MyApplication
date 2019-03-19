@@ -17,6 +17,7 @@ import com.zy.myapplication.fragment.GirlFragment;
 import com.zy.myapplication.fragment.UserFragment;
 import com.zy.myapplication.fragment.WechatFragment;
 import com.zy.myapplication.ui.SettingActivity;
+import com.zy.myapplication.utils.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +40,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         initDate();
         initView();
+        L.d("Test");
+        L.i("Test");
+        L.e("Test");
+        L.w("Test");
+
     }
     //初始化 数据
     private void initDate() {
@@ -58,6 +64,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void initView(){
         fab_setting= (FloatingActionButton) findViewById(R.id.fab_setting);
         fab_setting.setOnClickListener(this);
+        //默认隐藏
+        fab_setting.setVisibility(View.GONE);
+
         mTablayout=(TabLayout) findViewById(R.id.mTabLayout);
         mViewPager=(ViewPager)findViewById(R.id.mViewPaper);
         //预加载
@@ -69,13 +78,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
             }
-
             @Override
             public void onPageSelected(int position) {
-
-
+                Log.i("TAG","position:"+position);
+                if(position==0){
+                  fab_setting.setVisibility(View.GONE);
+                }else {
+                 fab_setting.setVisibility(View.VISIBLE);
+                }
             }
-
             @Override
             public void onPageScrollStateChanged(int state) {
 
