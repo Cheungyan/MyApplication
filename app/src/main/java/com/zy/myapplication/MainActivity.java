@@ -18,6 +18,7 @@ import com.zy.myapplication.fragment.UserFragment;
 import com.zy.myapplication.fragment.WechatFragment;
 import com.zy.myapplication.ui.SettingActivity;
 import com.zy.myapplication.utils.L;
+import com.zy.myapplication.utils.ShareUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,11 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         initDate();
         initView();
-        L.d("Test");
-        L.i("Test");
-        L.e("Test");
-        L.w("Test");
 
+        ShareUtils.putString(this,"username","哈子瑶");
     }
     //初始化 数据
     private void initDate() {
