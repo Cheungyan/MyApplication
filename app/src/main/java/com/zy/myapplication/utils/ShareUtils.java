@@ -42,7 +42,7 @@ public class ShareUtils {
 
 
     //键  Boolean值
-    public static void Boolean(Context mContext,String key,boolean value){
+    public static void putBoolean(Context mContext,String key,boolean value){
         SharedPreferences sp=mContext.getSharedPreferences(NAME,Context.MODE_PRIVATE);
         sp.edit().putBoolean(key,value).commit();
     }
